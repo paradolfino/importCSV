@@ -1,0 +1,24 @@
+<%= flash[:notice] %>
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Points</th>
+    </thead>
+    <tbody>
+        <% @participants.each do |participant| %>
+            <tr>
+                <td><%= participant.name %></td>
+                <td><%= participant.points %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<div>
+    
+    <%= form_tag import_participants_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "import CSV" %>
+    <% end %>
+    
+</div>
